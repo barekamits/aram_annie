@@ -134,25 +134,22 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-
-  /* ✅ Հանում ենք մոբայլ tap glow-ը */
   -webkit-tap-highlight-color: transparent;
-
-  /* ✅ Focus-ring հատուկ Safari-ի */
   -webkit-focus-ring-color: rgba(0, 0, 0, 0);
   outline: none;
+  box-shadow: none;
+  padding: 0;
 }
 
 .play-circle:focus {
   outline: none !important;
   box-shadow: none !important;
-  border: 2px solid #2d2d2d; /* պահպանում ենք տեսքը */
+  border: 2px solid #2d2d2d;
 }
-
 .play-icon {
   font-size: 44px;
   line-height: 1;
-  /*color: #2d2d2d;*/
+  color: #2d2d2d;
 }
 
     @keyframes slideUp {
@@ -516,9 +513,9 @@
 
   <div class="controls">
     <button class="control-btn" onclick="rewind()">&#9664;&#9664;</button>
-    <div class="play-circle" onclick="togglePlayPause()">
-      <span id="playIcon" class="play-icon">&#9654;</span>
-    </div>
+  <button class="play-circle" onclick="togglePlayPause()" type="button">
+  <span id="playIcon" class="play-icon">&#9654;</span>
+</button>
     <button class="control-btn" onclick="forward()">&#9654;&#9654;</button>
   </div>
 
