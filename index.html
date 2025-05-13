@@ -124,28 +124,30 @@
   color: #2d2d2d;
 }
 
-    .play-circle {
-      margin-top: 34px; /* Դու կարող ես փորձել այլ արժեք՝ ըստ տեսքի */
-      width: 90px;
-      height: 90px;
-      border: 3px solid #2d2d2d;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-    }
+.play-circle {
+  width: 70px;
+  height: 70px;
+  border: 2px solid #2d2d2d;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent; /* ✅ հանում ա մոբայլ highlight */
+  outline: none; /* ✅ լրիվ հանում է focus-ի տեսքը */
+}
 
-    .play-icon {
-      font-size: 44px;
-      line-height: 1;
-      color: #2d2d2d;
-    }
+.play-circle:focus,
+.control-btn:focus {
+  outline: none;
+}
 
-    .play-circle:focus,
-    .control-btn:focus {
-      outline: none;
-    }
+.play-icon {
+  font-size: 44px;
+  line-height: 1;
+  color: #2d2d2d;
+}
 
     @keyframes slideUp {
       from {
