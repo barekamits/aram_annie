@@ -134,14 +134,19 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
+  /* ✅ Հանում ենք մոբայլ tap glow-ը */
   -webkit-tap-highlight-color: transparent;
-  -webkit-focus-ring-color: transparent;
+
+  /* ✅ Focus-ring հատուկ Safari-ի */
+  -webkit-focus-ring-color: rgba(0, 0, 0, 0);
   outline: none;
 }
 
 .play-circle:focus {
   outline: none !important;
   box-shadow: none !important;
+  border: 2px solid #2d2d2d; /* պահպանում ենք տեսքը */
 }
 
 .play-icon {
