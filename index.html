@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Armenian&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+  <title>Grigor & Elen — Barekamits</title>
+  <style>
+    @font-face {
+      font-family: 'Vrdznagir';
+      src: url('Vrdznagir.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Playfair Display', serif;
+      background-color: #f5f0e9;
+      color: #2d2d2d;
+    }
+
+    .vrdznagir-text {
+      font-family: 'Vrdznagir', serif;
+      font-size: 36px;
+      color: #2c2c2c;
+      margin-top: 40px;
+    }
+
+    .hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100svh; /* ✅ New: for mobile safe viewport */
+  overflow: hidden;
+}
+
+.hero video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.4);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end; /* 🟢 Ահա սա է փոփոխությունը */
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding-bottom: 50px; /* կամ ավելացրու լրացուցիչ հեռավորություն */
+    }
+
+
+    .hero-content h1 {
+      font-family: 'Vrdznagir';
+      font-size: 3rem;
+      letter-spacing: 2px;
+    }
+
+    .aram.name,
+    .annie.name {
+      font-family:'Great Vibes', cursive ;
+      font-size: 5rem;
+    }
+
+    .ampersand {
+      font-size: 4rem;
+      font-family: 'Vrdznagir', serif;
+    }
+
+    h2 {
+      font-size: 22px;
+      margin: 40px 0 20px;
+      text-align: center;
+    }
+
+    .line {
+      width: 100%;
+      max-width: 400px;
+      height: 1px;
+      background-color: #2d2d2d;
+      margin: 0 auto 25px;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .control-btn {
+  background: none;
+  border: none;
+  font-size: 36px;
+  cursor: pointer;
+  color: #2d2d2d;
+}
+
+    .play-circle {
+      margin-top: 34px; /* Դու կարող ես փորձել այլ արժեք՝ ըստ տեսքի */
+      width: 90px;
+      height: 90px;
+      border: 3px solid #2d2d2d;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .play-icon {
+      font-size: 44px;
+      line-height: 1;
+      color: #2d2d2d;
+    }
+
+    .play-circle:focus,
+    .control-btn:focus {
+      outline: none;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(100px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes floatUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  animation: floatUp 0.8s ease forwards;
+}
+
+
+    .invitation-text {
+      margin-top: 60px;
+      font-size: 48px;
+      font-family: 'Great Vibes', cursive;
+      color: #2d2d2d;
+      text-align: center;
+      animation: slideUp 1.8s ease-out forwards;
+      opacity: 0;
+    }
+
+    .invitation-subtext {
+      margin-top: 20px;
+      font-size: 24px;
+      font-family: 'Noto Serif Armenian', serif;
+      color: #2d2d2d;
+      text-align: center;
+      animation: slideUp 2s ease-out forwards;
+      opacity: 0;
+    }
+
+    .calendar-section {
+      margin-top: 60px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .calendar-section h1 {
+      font-size: 36px;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 40px);
+      gap: 10px;
+      justify-content: center;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .day-name {
+      font-weight: bold;
+      font-family: 'Great Vibes',cursive;
+    }
+
+    .day {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .heart-wrapper {
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      width: 56px;
+      height: 56px;
+      pointer-events: none;
+    }
+
+    .heart-wrapper svg {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: black;
+      stroke-width: 2;
+    }
+
+
+    .day.special {
+      z-index: 2;
+    }
+
+    .location-heading {
+      margin-top: 70px;
+      text-align: center;
+      font-family: 'Noto Serif Armenian', serif;
+    }
+
+    .location-heading h2 {
+      font-family: 'Great Vibes',cursive;
+      font-size: 50px;
+      font-weight: normal;
+      color: #2d2d2d;
+    }
+    .location-text {
+      font-size: 30px;
+      font-family: 'Cormorant Garamond', serif;
+      color: #2d2d2d;
+      margin-bottom: 10px;
+    }
+    .map-button {
+      display: inline-block;
+      padding: 14px 36px;
+      border: 1px solid black;
+      border-radius: 999px;
+      text-decoration: none;
+      color: black;
+      font-family: 'Forum', serif;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      margin-top: 10px;
+    }
+
+    .map-button:hover {
+      background-color: black;
+      color: white;
+    }
+    .section-title {
+      font-family: 'Great Vibes',cursive;
+      font-size: 50px;
+      margin: 40px 0 20px;
+      text-align: center;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #333;
+    }
+
+    .timeline-item {
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .time {
+      font-family: 'Great Vibes',Cr;
+      font-size: 38px;
+      font-style: italic;
+      margin-bottom: 4px;
+    }
+
+    .event {
+      margin-top: 10px;
+      font-size: 20px;
+      color: black;
+    }
+
+    .line {
+      width: 1px;
+      height: 45px; /* Եկեք դարձնենք բոլոր գծերը նույն չափսով */
+      background-color: black;
+      margin: 10px auto;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 500px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .color-palette {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .color {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+    }
+
+    .pink { background-color: #f7c6cc; }
+    .blue { background-color: #d4e2f4; }
+    .cream { background-color: #faebd7; }
+    .black { background-color: #000; }
+    section#guest-form {
+      padding: 40px 20px;
+    }
+
+    h2 {
+      font-family: 'Great Vibes', cursive;
+      text-align: center;
+      font-size: 42px;
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+
+    p.description {
+      font-size: 18px;
+      max-width: 500px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left; /* ✅ Ավելացրու սա */
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      background: transparent;
+    }
+
+    .radio-option, .checkbox-option {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: normal;
+    }
+
+    #guest-form label,
+    .radio-option,
+    .checkbox-option {
+      font-size: 19px;   /* ✅ Ավելացնենք չափը */
+      line-height: 1.6;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      transform: scale(1.2); /* ✅ Նույնիսկ ինփութներն էլ մի փոքր մեծացնենք */
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      display: block;
+      margin-top: 20px;
+      /* 🔻 Հանենք margin-left-ը */
+      padding: 12px 30px;
+      font-size: 16px;
+      border: none;
+      background-color: white;
+      color: black;
+      border-radius: 30px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: white;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 48px;
+      font-weight: normal;
+      margin: 0 0 40px 0;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      font-size: 48px;
+      gap: 20px;
+      font-family: 'Georgia', serif;
+    }
+
+    .labels {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      font-size: 16px;
+      margin-top: 10px;
+      letter-spacing: 1px;
+    }
+
+    .labels div {
+      width: 60px;
+      text-align: center;
+    }
+
+    .colon {
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <video autoplay muted loop playsinline>
+      <source src="assets/zuyg.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <div class="aram name">Арам</div>
+      <div class="ampersand">&</div>
+      <div class="annie name">Aни</div>
+    </div>
+  </section>
+
+  <h2>Включите музыку для атмосферы</h2>
+  
+
+  <div class="controls">
+    <button class="control-btn" onclick="rewind()">&#9664;&#9664;</button>
+    <div class="play-circle" onclick="togglePlayPause()">
+      <span id="playIcon" class="play-icon">&#9654;</span>
+    </div>
+    <button class="control-btn" onclick="forward()">&#9654;&#9654;</button>
+  </div>
+
+  <audio id="audio" src="assets/Project La In My Dreams.mp3"></audio>
+
+  <div class="invitation-text">Дорогие гости!</div>
+  <div class="invitation-subtext">
+    С любовью и радостью<br />
+    приглашаем Вас разделить с нами<br />
+    этот важный момент — НАШУ СВАДЬБУ!
+  </div>
+
+  <div class="calendar-section">
+    <h1>Август</h1>
+    <div class="calendar">
+      <div class="day-name">пн</div>
+      <div class="day-name">вт</div>
+      <div class="day-name">ср</div>
+      <div class="day-name">чт</div>
+      <div class="day-name">пт</div>
+      <div class="day-name">сб</div>
+      <div class="day-name">вс</div>
+
+      <div></div><div></div><div></div><div></div><div></div>
+      <div class="day">1</div>
+      <div class="day">2</div>
+      <div class="day">3</div>
+      <div class="day">4</div>
+      <div class="day">5</div>
+      <div class="day">6</div>
+      <div class="day">7</div>
+      <div class="day">8</div>
+      <div class="day">9</div>
+      <div class="day">10</div>
+      <div class="day">11</div>
+      <div class="day">12</div>
+      <div class="day">13</div>
+      <div class="day">14</div>
+      <div class="day">15</div>
+      <div class="day">16</div>
+      <div class="day">17</div>
+      <div class="day">18</div>
+      <div class="day">19</div>
+      <div class="day">20</div>
+      <div class="day special">
+        21
+        <div class="heart-wrapper">
+          <svg viewBox="0 0 32 29.6">
+            <path d="M23.6,0c-3.4,0-6.3,2.1-7.6,5.2C14.7,2.1,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.1,16,21.2,16,21.2s16-12.1,16-21.2
+              C32,3.8,28.2,0,23.6,0z"/>
+          </svg>
+        </div>
+      </div>
+      <div class="day">22</div>
+      <div class="day">23</div>
+      <div class="day">24</div>
+      <div class="day">25</div>
+      <div class="day">26</div>
+      <div class="day">27</div>
+      <div class="day">28</div>
+      <div class="day">29</div>
+      <div class="day">30</div>
+      <div class="day">31</div>
+    </div>
+  </div>
+  <div class="location-heading">
+    <h2>Локация</h2>
+    <p class="location-text">Ареа конгресс отель</p>
+    <a href="https://maps.google.com/?q=Ареа+Конгресс+Отель" class="map-button" target="_blank">
+      ПЕРЕЙТИ НА КАРТУ
+    </a>
+  </div>
+  <div class="section-title">План дня</div>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="time">12:00</div>
+      <div class="event">Сбор гостей</div>
+      <div class="line"></div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="time">12:30</div>
+      <div class="event">Церемония</div>
+      <div class="line"></div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="time">13:00</div>
+      <div class="event">Банкет</div>
+      <div class="line"></div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="time">21:00</div>
+      <div class="event">Завершение торжества</div>
+    </div>
+  </div>
+  <h1>Дресс-код</h1>
+  <p>
+    Нам будет очень приятно, если<br>
+    Вы учтете наши пожелания и при<br>
+    выборе одежды предпочтёте вечерние<br>
+    наряды в представленной ниже гамме:
+  </p>
+  <div class="color-palette">
+    <div class="color pink"></div>
+    <div class="color blue"></div>
+    <div class="color cream"></div>
+    <div class="color black"></div>
+  </div>
+  <section id="guest-form">
+    <h2>Анкета гостя</h2>
+
+  <p class="description">
+    Пожалуйста, ответьте на несколько <br> вопросов до 1 мая — это поможет нам <br> в организации торжества!<br>
+    Будтьте внимательны - анкета заполняет <br> на каждого гостя отдельно, даже если <br> Вы идёте парой или семьёй.
+  </p>
+    <form id="rsvpForm">
+      <label for="fullName">Фамилия Имя</label>
+      <input type="text" id="fullName" name="fullName" placeholder="Например: Вера и Борис – Борисовы" required>
+
+      <label>Сможете ли вы присутствовать?</label>
+      <label class="radio-option"><input type="radio" name="attendance" value="Да" required> Да</label>
+      <label class="radio-option"><input type="radio" name="attendance" value="Нет"> Нет</label>
+      <label class="radio-option"><input type="radio" name="attendance" value="Сообщу позже"> Сообщу позже</label>
+
+      <label>Понадобится ли вам трансфер?</label>
+      <label class="radio-option"><input type="radio" name="transfer" value="Да" required> Да</label>
+      <label class="radio-option"><input type="radio" name="transfer" value="Нет"> Нет</label>
+      <label class="radio-option"><input type="radio" name="transfer" value="Только от ЗАГСа до ресторана"> Только от ЗАГСа до ресторана</label>
+      <label class="radio-option"><input type="radio" name="transfer" value="Только от ресторана"> Только от ресторана</label>
+
+      <label>Предпочтения по напиткам</label>
+      <label class="checkbox-option"><input type="checkbox" name="drinks" value="Шампанское"> Шампанское</label>
+      <label class="checkbox-option"><input type="checkbox" name="drinks" value="Белое вино"> Белое вино</label>
+      <label class="checkbox-option"><input type="checkbox" name="drinks" value="Красное вино"> Красное вино</label>
+      <label class="checkbox-option"><input type="checkbox" name="drinks" value="Водка"> Водка</label>
+      <label class="checkbox-option"><input type="checkbox" name="drinks" value="Коньяк"> Коньяк</label>
+      <label class="checkbox-option"><input type="checkbox" name="drinks" value="Джин"> Джин</label>
+
+      <button type="submit">Отправить</button>
+    </form>
+    <h1>Увидимся через</h1>
+    <div class="countdown" id="countdown">
+      <span id="days">000</span><span class="colon">:</span>
+      <span id="hours">00</span><span class="colon">:</span>
+      <span id="minutes">00</span><span class="colon">:</span>
+      <span id="seconds">00</span>
+    </div>
+    <div class="labels">
+      <div>ДНЕЙ</div>
+      <div>ЧАСОВ</div>
+      <div>МИНУТ</div>
+      <div>СЕКУНД</div>
+    </div>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const playIcon = document.getElementById('playIcon');
+
+    function togglePlayPause() {
+      if (audio.paused) {
+        audio.play();
+        playIcon.innerHTML = "❚❚";
+      } else {
+        audio.pause();
+        playIcon.innerHTML = "▶";
+      }
+    }
+
+    function rewind() {
+      audio.currentTime -= 10;
+    }
+
+    function forward() {
+      audio.currentTime += 10;
+    }
+
+    window.addEventListener('load', () => {
+      const invitation = document.querySelector('.invitation-text');
+      invitation.style.opacity = '1';
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+        entry.target.classList.add('animate-on-scroll', 'animated');
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.section-title, .location-heading, .timeline-item, #guest-form, .invitation-text, .invitation-subtext, .calendar-section, h1, p, form, .color-palette, .map-button')
+    .forEach(el => observer.observe(el));
+
+    const targetDate = new Date("2025-11-15T00:00:00").getTime(); // Փոխիր ըստ անհրաժեշտության
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = String(days).padStart(3, '0');
+      document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+      document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+      document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+</html>
