@@ -21,12 +21,13 @@
       box-sizing: border-box;
     }
 
-    body, html {
-      height: 100%;
-      font-family: 'Playfair Display', serif;
-      background-color: #f5f0e9;
-      color: #2d2d2d;
-    }
+body, html {
+  height: 100%;
+  font-family: 'Playfair Display', serif;
+  background-color: #f5f0e9;
+  color: #2d2d2d;
+  overflow-x: hidden; /* ✅ Սա է scroll-ը փակում */
+}
 
     .vrdznagir-text {
       font-family: 'Vrdznagir', serif;
@@ -150,6 +151,10 @@
   font-size: 44px;
   line-height: 1;
   color: #2d2d2d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
     @keyframes slideUp {
