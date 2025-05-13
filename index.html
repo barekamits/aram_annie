@@ -6,7 +6,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Armenian&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
-  <title>Grigor & Elen — Barekamits</title>
+  <title>Aram & Annie — Barekamits</title>
   <style>
     @font-face {
       font-family: 'Vrdznagir';
@@ -241,22 +241,24 @@ body, html {
       position: relative;
     }
 
-    .heart-wrapper {
-      position: absolute;
-      top: -8px;
-      left: -8px;
-      width: 56px;
-      height: 56px;
-      pointer-events: none;
-    }
+.heart-wrapper {
+  position: absolute;
+  top: -10px; /* եթե վերևից էլ կտրում էր՝ սա էլ կօգնի */
+  left: -10px;
+  width: 60px;   /* ⬅️ մեծացնում ենք */
+  height: 60px;
+  pointer-events: none;
+  overflow: visible; /* ✅ սա ապահովում է, որ svg-ն չկտրվի */
+}
 
-    .heart-wrapper svg {
-      width: 100%;
-      height: 100%;
-      fill: none;
-      stroke: black;
-      stroke-width: 2;
-    }
+.heart-wrapper svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: black;
+  stroke-width: 2;
+  overflow: visible; /* ✅ շատ կարևոր */
+}
 
 
     .day.special {
@@ -451,11 +453,12 @@ body, html {
       background-color: white;
     }
     h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 48px;
-      font-weight: normal;
-      margin: 0 0 40px 0;
+     font-family: 'Great Vibes', cursive;
+     font-size: 48px;
+     font-weight: normal;
+    margin: 60px 0 40px 0; /* ✅ փոխեցինք */
     }
+
 
     .countdown {
       display: flex;
@@ -493,6 +496,23 @@ body, html {
     margin-bottom: 30px;
     border-top: 2px solid #2d2d2d;
     padding-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .countdown {
+    font-size: 36px;
+    gap: 10px;
+  }
+
+  .labels {
+    gap: 20px;
+    font-size: 14px;
+  }
+
+  .labels div {
+    width: auto;
+    font-size: 12px;
   }
 }
 
