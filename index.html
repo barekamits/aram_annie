@@ -14,6 +14,13 @@
       font-weight: normal;
       font-style: normal;
     }
+       @font-face {
+      font-family: 'Breesh-Light';
+      src: url('Breesh-Light.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  
 
     * {
       margin: 0;
@@ -86,10 +93,12 @@ body, html {
 
     .aram.name,
     .annie.name {
-      font-family:'Great Vibes', cursive ;
+      font-family:'Breesh-Light',serif ;
       font-size: 5rem;
     }
-
+    .music-words{
+      font-family: 'Vrdznagir',serif;
+    }
     .ampersand {
       font-size: 4rem;
       font-family: 'Vrdznagir', serif;
@@ -187,7 +196,7 @@ body, html {
     .invitation-text {
       margin-top: 60px;
       font-size: 48px;
-      font-family: 'Great Vibes', cursive;
+      font-family: 'Vrdznagir', serif;
       color: #2d2d2d;
       text-align: center;
       animation: slideUp 1.8s ease-out forwards;
@@ -197,7 +206,7 @@ body, html {
     .invitation-subtext {
       margin-top: 20px;
       font-size: 24px;
-      font-family: 'Noto Serif Armenian', serif;
+      font-family: 'Vrdznagir', serif;
       color: #2d2d2d;
       text-align: center;
       animation: slideUp 2s ease-out forwards;
@@ -213,6 +222,7 @@ body, html {
     }
 
     .calendar-section h1 {
+      font-family:'Breesh-Light',serif;
       font-size: 36px;
       font-style: italic;
       margin-bottom: 10px;
@@ -229,7 +239,7 @@ body, html {
 
     .day-name {
       font-weight: bold;
-      font-family: 'Great Vibes',cursive;
+      font-family:'Breesh-Light',serif;
     }
 
     .day {
@@ -279,7 +289,7 @@ body, html {
     }
     .location-text {
       font-size: 30px;
-      font-family: 'Cormorant Garamond', serif;
+      font-family:'Vrdznagir',serif;
       color: #2d2d2d;
       margin-bottom: 10px;
     }
@@ -301,13 +311,14 @@ body, html {
       color: white;
     }
     .section-title {
-      font-family: 'Great Vibes',cursive;
+      font-family:'Vrdznagir',serif;
       font-size: 50px;
       margin: 40px 0 20px;
       text-align: center;
     }
 
     .timeline {
+      font-family:'Vrdznagir',serif;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -347,6 +358,7 @@ body, html {
     }
 
     p {
+      font-family:'Vrdznagir',serif;
       font-size: 18px;
       max-width: 500px;
       margin: 0 auto 40px;
@@ -376,7 +388,7 @@ body, html {
     }
 
     h2 {
-      font-family: 'Great Vibes', cursive;
+      font-family:'Vrdznagir',serif;
       text-align: center;
       font-size: 42px;
       font-weight: normal;
@@ -453,7 +465,7 @@ body, html {
       background-color: white;
     }
     h1 {
-     font-family: 'Great Vibes', cursive;
+      font-family:'Vrdznagir',serif;
      font-size: 48px;
      font-weight: normal;
     margin: 60px 0 40px 0; /* ✅ փոխեցինք */
@@ -469,10 +481,11 @@ body, html {
     }
 
     .labels {
+      font-family:'Vrdznagir',serif;
       display: flex;
       justify-content: center;
-      gap: 40px;
-      font-size: 16px;
+      gap: 60px;
+      font-size: 40px;
       margin-top: 10px;
       letter-spacing: 1px;
     }
@@ -527,13 +540,13 @@ body, html {
     </video>
     <div class="overlay"></div>
     <div class="hero-content">
-      <div class="aram name">Арам</div>
+      <div class="aram name">Aram</div>
       <div class="ampersand">&</div>
-      <div class="annie name">Aни</div>
+      <div class="annie name">Annie</div>
     </div>
   </section>
 
-  <h2>Включите музыку для атмосферы</h2>
+  <h2 class="music-words">Երաժշտությունը մեր սիրո պատմության ֆոնն է</h2>
   
 
   <div class="controls">
@@ -546,23 +559,23 @@ body, html {
 
   <audio id="audio" src="Project La In My Dreams.mp3"></audio>
 
-  <div class="invitation-text">Дорогие гости!</div>
+  <div class="invitation-text">Սիրելի հյուրեր!</div>
   <div class="invitation-subtext">
-    С любовью и радостью<br />
-    приглашаем Вас разделить с нами<br />
-    этот важный момент — НАШУ СВАДЬБУ!
+   Սիրով և ուրախությամբ<br />
+    հրավիրում ենք Ձեզ կիսելու մեզ հետ<br />
+    մեզ համար ամենասպասված օրը!
   </div>
 
   <div class="calendar-section">
-    <h1>Август</h1>
+    <h1>August</h1>
     <div class="calendar">
-      <div class="day-name">пн</div>
-      <div class="day-name">вт</div>
-      <div class="day-name">ср</div>
-      <div class="day-name">чт</div>
-      <div class="day-name">пт</div>
-      <div class="day-name">сб</div>
-      <div class="day-name">вс</div>
+      <div class="day-name">Mon</div>
+      <div class="day-name">Tue</div>
+      <div class="day-name">Wed</div>
+      <div class="day-name">Thu</div>
+      <div class="day-name">Fri</div>
+      <div class="day-name">Sat</div>
+      <div class="day-name">Sun</div>
 
       <div></div><div></div><div></div><div></div><div></div>
       <div class="day">1</div>
@@ -607,45 +620,45 @@ body, html {
     </div>
   </div>
   <div class="location-heading">
-    <h2>Локация</h2>
-    <p class="location-text">Ареа конгресс отель</p>
+    <h2>Location</h2>
+    <p class="location-text">Մորենա Հանդիսությունների սրահ</p>
     <a href="https://maps.google.com/?q=Ареа+Конгресс+Отель" class="map-button" target="_blank">
-      ПЕРЕЙТИ НА КАРТУ
+      Տեսնել քարտեզը
     </a>
   </div>
-  <div class="section-title">План дня</div>
+  <div class="section-title">Օրակարգ</div>
 
   <div class="timeline">
     <div class="timeline-item">
       <div class="time">12:00</div>
-      <div class="event">Сбор гостей</div>
+      <div class="event">Հյուրերի ժամանում</div>
       <div class="line"></div>
     </div>
 
     <div class="timeline-item">
       <div class="time">12:30</div>
-      <div class="event">Церемония</div>
+      <div class="event">Պսակադրություն</div>
       <div class="line"></div>
     </div>
 
     <div class="timeline-item">
       <div class="time">13:00</div>
-      <div class="event">Банкет</div>
+      <div class="event">Երեկույթ</div>
       <div class="line"></div>
     </div>
 
     <div class="timeline-item">
       <div class="time">21:00</div>
-      <div class="event">Завершение торжества</div>
+      <div class="event">Ավարտ</div>
     </div>
   </div>
-  <h1>Дресс-код</h1>
-  <p>
-    Нам будет очень приятно, если<br>
-    Вы учтете наши пожелания и при<br>
-    выборе одежды предпочтёте вечерние<br>
-    наряды в представленной ниже гамме:
-  </p>
+  <h1 class = "dresscode">Dress Code</h1>
+<p class = "dresscode-subtext">
+  Մենք անչափ ուրախ կլինենք, եթե<br>
+  հագուստի ընտրության ժամանակ հաշվի<br>
+  առնեք մեր ցանկությունը և նախընտրեք<br>
+  երեկոյան կերպարներ ստորև ներկայացված գունային գամայով։
+</p>
   <div class="color-palette">
     <div class="color pink"></div>
     <div class="color blue"></div>
@@ -653,38 +666,37 @@ body, html {
     <div class="color black"></div>
   </div>
   <section id="guest-form">
-    <h2>Анкета гостя</h2>
+    <h2>Հարցաթերթիկ</h2>
 
-  <p class="description">
-    Пожалуйста, ответьте на несколько <br> вопросов до 1 мая — это поможет нам <br> в организации торжества!<br>
-    Будтьте внимательны - анкета заполняет <br> на каждого гостя отдельно, даже если <br> Вы идёте парой или семьёй.
-  </p>
+<p class="description">
+  Խնդրում ենք պատասխանել մի քանի <br> հարցերի մինչև մայիսի 1-ը — սա <br> կօգնի մեզ կազմակերպել տոնը։<br>
+  Ուշադրություն՝ հարցաթերթիկը լրացվում է <br> յուրաքանչյուր հյուրի համար առանձին, <br> նույնիսկ եթե գալիս եք զույգով կամ ընտանիքով։
+</p>
     <form id="rsvpForm">
-      <label for="fullName">Фамилия Имя</label>
-      <input type="text" id="fullName" name="fullName" placeholder="Например: Вера и Борис – Борисовы" required>
+      <label for="fullName">Անուն Ազգանուն</label>
+      <input type="text" id="fullName" name="fullName"  required>
 
-      <label>Сможете ли вы присутствовать?</label>
-      <label class="radio-option"><input type="radio" name="attendance" value="Да" required> Да</label>
-      <label class="radio-option"><input type="radio" name="attendance" value="Нет"> Нет</label>
-      <label class="radio-option"><input type="radio" name="attendance" value="Сообщу позже"> Сообщу позже</label>
+      <label>Ձեր ներկայությունը կարևոր է մեզ համար</label>
+      <label class="radio-option"><input type="radio" name="attendance" value="Да" required> Կգամ</label>
+      <label class="radio-option"><input type="radio" name="attendance" value="Нет"> Չեմ կարողանա ցավոք</label>
+      <label class="radio-option"><input type="radio" name="attendance" value="Сообщу позже"> Ավելի ուշ կտեղեկացնեմ</label>
 
-      <label>Понадобится ли вам трансфер?</label>
-      <label class="radio-option"><input type="radio" name="transfer" value="Да" required> Да</label>
-      <label class="radio-option"><input type="radio" name="transfer" value="Нет"> Нет</label>
-      <label class="radio-option"><input type="radio" name="transfer" value="Только от ЗАГСа до ресторана"> Только от ЗАГСа до ресторана</label>
-      <label class="radio-option"><input type="radio" name="transfer" value="Только от ресторана"> Только от ресторана</label>
+      <label>Անհրաժե՞շտ է փոխադրում</label>
+      <label class="radio-option"><input type="radio" name="transfer" value="Да" required> Այո</label>
+      <label class="radio-option"><input type="radio" name="transfer" value="Нет"> Ոչ</label>
+      <label class="radio-option"><input type="radio" name="transfer" value="Только от ЗАГСа до ресторана"> Միայն ԶԱԳՍ-ից ռեստորան</label>
+      <label class="radio-option"><input type="radio" name="transfer" value="Только от ресторана"> Միայն ռեստորանից</label>
 
-      <label>Предпочтения по напиткам</label>
-      <label class="checkbox-option"><input type="checkbox" name="drinks" value="Шампанское"> Шампанское</label>
-      <label class="checkbox-option"><input type="checkbox" name="drinks" value="Белое вино"> Белое вино</label>
-      <label class="checkbox-option"><input type="checkbox" name="drinks" value="Красное вино"> Красное вино</label>
-      <label class="checkbox-option"><input type="checkbox" name="drinks" value="Водка"> Водка</label>
-      <label class="checkbox-option"><input type="checkbox" name="drinks" value="Коньяк"> Коньяк</label>
-      <label class="checkbox-option"><input type="checkbox" name="drinks" value="Джин"> Джин</label>
+      <label>Ի՞նչ եք նախընտրում</label>
+      <label class="checkbox-option"><input type="checkbox" name="drinks" value="Шампанское"> Շոմպայն</label>
+      <label class="checkbox-option"><input type="checkbox" name="drinks" value="Белое вино"> Կարմիր գինի</label>
+      <label class="checkbox-option"><input type="checkbox" name="drinks" value="Красное вино"> Սպիտակ գինի</label>
+      <label class="checkbox-option"><input type="checkbox" name="drinks" value="Коньяк"> Կոնյակ</label>
+      <label class="checkbox-option"><input type="checkbox" name="drinks" value="Джин"> Ջին</label>
 
-      <button type="submit">Отправить</button>
+      <button type="submit">Ուղարկել</button>
     </form>
-    <h1>Увидимся через</h1>
+    <h1>Մեր հարսանիքին մնացել է </h1>
     <div class="countdown" id="countdown">
       <span id="days">000</span><span class="colon">:</span>
       <span id="hours">00</span><span class="colon">:</span>
@@ -692,10 +704,10 @@ body, html {
       <span id="seconds">00</span>
     </div>
     <div class="labels">
-      <div>ДНЕЙ</div>
-      <div>ЧАСОВ</div>
-      <div>МИНУТ</div>
-      <div>СЕКУНД</div>
+      <div>Օր</div>
+      <div>Ժամ</div>
+      <div>Րոպե</div>
+      <div>Վայրկյան</div>
     </div>
 
   <script>
